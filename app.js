@@ -17,10 +17,10 @@ var generateRandomDude = function() {
   return randomDude;
 };
 
-var generateRandomPosition = function() {
-  var randomPos = Math.floor(Math.random() * 50);
-  return randomPos;
-};
+// var generateRandomPosition = function() {
+//   var randomPos = Math.floor(Math.random() * 100);
+//   return randomPos;
+// };
 
 var dudeCounter = 1;
 
@@ -28,14 +28,18 @@ var dudeCounter = 1;
 function createDude() {
 $('#create').on("click", function() {
   var generatedDude = generateRandomDude();
-  var randomPositioned = generateRandomPosition();
+  // var randomPositioned = generateRandomPosition();
   var newID = 'dude' + dudeCounter;
   dudeCounter +=1;
 
   $('.container').append('<div class="dude" id ="' + newID +'"><div class="eye"></div><div class="eye"></div><div class="mouth"><div class="tooth"></div></div></div>');
   $('#' + newID).addClass(generatedDude);
-  $('.dude').css('top',  100 + randomPositioned + 'px;');
-  $('.dude').css('left', 60 + randomPositioned + 'px;');
+
+  // $('.dude').css( "top", randomPositioned );
+  // $('.dude').css( "left", "30" );
+
+  // $('.dude').css('top',  50 + randomPositioned);
+  // $('.dude').css('left', 50 + randomPositioned);
   $('.eye').show();
 
     if ( generatedDude === 'dude3' || generatedDude ==='dude5'){
@@ -53,30 +57,30 @@ $('#create').on("click", function() {
     return randomAnimation;
   };
 
-  $('body').on("mouseenter", '.dude', function() {
-  var generatedAnimation = generateRandomAnimation();
-  $(this).attr('animation', generatedAnimation);
-  $(this).addClass(' animated ' + generatedAnimation + ' infinite');
-  })
-
-  $('body').on("mouseleave", '.dude', function() {
-  var currentAnimation = $(this).attr('animation');
-  // if ($(this).hasClass('infinite')) {
-  $(this).removeClass(currentAnimation);
-  $(this).attr('animation', '');
-  // };
-
-  })
-
-  // $('body').on("click", '.dude', function() {
+  // $('body').on("mouseenter", '.dude', function() {
   // var generatedAnimation = generateRandomAnimation();
+  // $(this).attr('animation', generatedAnimation);
+  // $(this).addClass(' animated ' + generatedAnimation + ' infinite');
+  // })
+
+  // $('body').on("mouseleave", '.dude', function() {
   // var currentAnimation = $(this).attr('animation');
-  //   $(this).removeClass(currentAnimation);
-  //   $(this).attr('animation', '');
-  //   $(this).toggleClass(' animated ' + generatedAnimation + ' infinite');
-  //   $(this).attr('animation', generatedAnimation);
+  // $(this).removeClass(currentAnimation);
+  // $(this).attr('animation', '');
+
+  $('body').on("click", '.dude', function() {
+  var generatedAnimation = generateRandomAnimation();
+  $(this).toggleClass(' animated ' + generatedAnimation + ' infinite');
+  })
+
+  // $('body').on("mouseleave", '.dude', function() {
+  // var currentAnimation = $(this).attr('animation');
+  // $(this).removeClass(currentAnimation);
+  // $(this).attr('animation', '');
 
   // })
+
+
 
 });
 
