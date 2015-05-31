@@ -3,9 +3,6 @@
 
 $(document).ready(function(){
 
-
-// the background color should be the predominant color of the uploaded picture
-$('body').css("background-color:rgb(220, 200, 255)");
 createDude();
 
 
